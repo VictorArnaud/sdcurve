@@ -1,0 +1,22 @@
+version: '3'
+services:
+  # Server
+  nginx-prod:
+    image: nginx:latest
+    volumes:
+      - ./nginx/production.conf:/etc/nginx/conf.d/production.conf
+      - ../sdcurve/staticfiles:/usr/share/nginx/html
+    ports:
+      - "8001:8000"
+    depends_on:
+      - sdcurve-prod
+
+  # Backend production enviroment
+  sdcurve-prod:
+    image: victorhad/sdcurve:latest
+    depends_on:
+      - db
+
+  # Postgresql database
+  db:
+    image: postgres
