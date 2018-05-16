@@ -10,28 +10,62 @@ class HeightCurve(object):
     Growth curve based on the height of the child with Down Syndrome.
     """
 
+    ALL = 0
+    AGES = 1
+    PERCENTIS_3 = 2
+    PERCENTIS_10 = 3
+    PERCENTIS_25 = 4
+    PERCENTIS_50 = 5
+    PERCENTIS_75 = 6
+    PERCENTIS_90 = 7
+    PERCENTIS_97 = 8
+    TITLE = 9
+
     def __init__(self, gender=Constants.MALE, age=Constants.YEARS):
         """
         Redirects to chart type according to past parameters, MALE or FEMALE
         genre, and age MONTHS or YEARS
         """
 
-        self.graphic = []
+        self.graphic = {}
 
         if gender == Constants.MALE and age == Constants.YEARS:
-            curve = HeightCurveMaleYears()
+            self.curve = HeightCurveMaleYears()
         elif gender == Constants.MALE and age == Constants.MONTHS:
-            curve = HeightCurveMaleMonths()
+            self.curve = HeightCurveMaleMonths()
         elif gender == Constants.FEMALE and age == Constants.YEARS:
-            curve = HeightCurveFemaleYears()
+            self.curve = HeightCurveFemaleYears()
         else:
-            curve = HeightCurveFemaleMonths()
+            self.curve = HeightCurveFemaleMonths()
 
-        self.graphic = curve.make()
+        self.graphic = self.curve.make()
 
-    def make(self):
+    def make(self, axis=0):
         """
         Return a graphic
         """
 
-        return self.graphic
+        result = []
+
+        if axis == self.ALL:
+            result = self.graphic
+        elif axis == self.AGES:
+            result = self.curve.ages
+        elif axis == self.PERCENTIS_3:
+            result = self.curve.percentis_3
+        elif axis == self.PERCENTIS_10:
+            result = self.curve.percentis_10
+        elif axis == self.PERCENTIS_25:
+            result = self.curve.percentis_25
+        elif axis == self.PERCENTIS_50:
+            result = self.curve.percentis_50
+        elif axis == self.PERCENTIS_75:
+            result = self.curve.percentis_75
+        elif axis == self.PERCENTIS_90:
+            result = self.curve.percentis_90
+        elif axis == self.PERCENTIS_97:
+            result = self.curve.percentis_97
+        else:
+            result = self.curve.title
+
+        return result
