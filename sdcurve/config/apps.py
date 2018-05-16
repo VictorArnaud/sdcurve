@@ -17,7 +17,9 @@ EXTERNAL_APPS = [
     'rest_framework_swagger',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'curves',
+]
 
 PRODUCTION_APPS = APPS_DJANGO + EXTERNAL_APPS + LOCAL_APPS
 

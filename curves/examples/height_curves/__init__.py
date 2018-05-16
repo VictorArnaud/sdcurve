@@ -1,0 +1,4 @@
+from curves.examples.height_curves.male_years import HeightCurveMaleYears
+from curves.examples.height_curves.male_months import HeightCurveMaleMonths
+from curves.examples.height_curves.female_years import HeightCurveFemaleYears
+from curves.examples.height_curves.female_months import HeightCurveFemaleMonths
