@@ -1,4 +1,4 @@
-{% extends 'height/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 
 {% block js %}
@@ -6,6 +6,6 @@
 {% endblock %}
 
 {% block body %}
-  <div id="graphic" style="display: none">{{graphic}}</div>
+  <div id="graphic">{{graphic}}</div>
   <div id="chart_height_curve" class="chart"></div>
 {% endblock %}

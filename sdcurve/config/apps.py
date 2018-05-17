@@ -18,6 +18,7 @@ EXTERNAL_APPS = [
 ]
 
 LOCAL_APPS = [
+    'core',
     'height',
 ]
 
