@@ -70,6 +70,36 @@ class HeightCurve(object):
 
         return result
 
+    def make_charts(self):
+        """
+        Function to create percentis curves to plot in google charts.
+        """
+
+        array_data_table = [['Ages', '3%', '10%', '25%', '50%', '75%', '90%', '97%']]
+
+        ages = self.make(HeightCurve.AGES)
+        percentis_3 = self.make(HeightCurve.PERCENTIS_3)
+        percentis_10 = self.make(HeightCurve.PERCENTIS_10)
+        percentis_25 = self.make(HeightCurve.PERCENTIS_25)
+        percentis_50 = self.make(HeightCurve.PERCENTIS_50)
+        percentis_75 = self.make(HeightCurve.PERCENTIS_75)
+        percentis_90 = self.make(HeightCurve.PERCENTIS_90)
+        percentis_97 = self.make(HeightCurve.PERCENTIS_97)
+
+        for age in ages:
+            array_data_table.append([
+                ages[age],
+                percentis_3[age],
+                percentis_10[age],
+                percentis_25[age],
+                percentis_50[age],
+                percentis_75[age],
+                percentis_90[age],
+                percentis_97[age],
+            ])
+
+        return array_data_table
+
     def result(self, height, age):
         """
         Check the chart if the child is above, below or at the mean height.
