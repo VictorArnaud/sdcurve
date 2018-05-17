@@ -70,7 +70,7 @@ class HeightCurve(object):
 
         return result
 
-    def make_charts(self):
+    def make_charts(self, years=False):
         """
         Function to create percentis curves to plot in google charts.
         """
@@ -87,6 +87,9 @@ class HeightCurve(object):
         percentis_97 = self.make(HeightCurve.PERCENTIS_97)
 
         for age in ages:
+            if years:
+                age -= 3
+
             array_data_table.append([
                 ages[age],
                 percentis_3[age],

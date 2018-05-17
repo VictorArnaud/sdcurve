@@ -13,47 +13,27 @@ class HeightCurveMaleMonths(generics.RetrieveAPIView):
 
     serializer_class = HeightCurveSerializer
 
-    def make_curves(self, graphic):
-        """
-        Function to create percentis curves to plot.
-        """
-
-        array_data_table = [['Ages', '3%', '10%', '25%', '50%', '75%', '90%', '97%']]
-
-        ages = graphic.make(HeightCurve.AGES)
-        percentis_3 = graphic.make(HeightCurve.PERCENTIS_3)
-        percentis_10 = graphic.make(HeightCurve.PERCENTIS_10)
-        percentis_25 = graphic.make(HeightCurve.PERCENTIS_25)
-        percentis_50 = graphic.make(HeightCurve.PERCENTIS_50)
-        percentis_75 = graphic.make(HeightCurve.PERCENTIS_75)
-        percentis_90 = graphic.make(HeightCurve.PERCENTIS_90)
-        percentis_97 = graphic.make(HeightCurve.PERCENTIS_97)
-
-        for age in ages:
-            array_data_table.append([
-                ages[age],
-                percentis_3[age],
-                percentis_10[age],
-                percentis_25[age],
-                percentis_50[age],
-                percentis_75[age],
-                percentis_90[age],
-                percentis_97[age],
-            ])
-
-        return array_data_table
-
     def get_object(self):
         """
         Get the specific curve.
         """
 
-        graphic = HeightCurve(
+        self.graphic = HeightCurve(
             gender=Constants.MALE,
             age=Constants.MONTHS
         )
 
-        return graphic.make()
+        return self.graphic.make()
+
+    def get_serializer_context(self):
+        """
+        Insert some attribute inside serializer.
+        """
+
+        context = super(HeightCurveMaleMonths, self).get_serializer_context()
+        context['graphic'] = self.graphic.make_charts()
+
+        return context
 
 
 class HeightCurveMaleYears(generics.RetrieveAPIView):
@@ -68,12 +48,22 @@ class HeightCurveMaleYears(generics.RetrieveAPIView):
         Get the specific curve.
         """
 
-        graphic = HeightCurve(
+        self.graphic = HeightCurve(
             gender=Constants.MALE,
             age=Constants.YEARS
         )
 
-        return graphic.make()
+        return self.graphic.make()
+
+    def get_serializer_context(self):
+        """
+        Insert some attribute inside serializer.
+        """
+
+        context = super(HeightCurveMaleYears, self).get_serializer_context()
+        context['graphic'] = self.graphic.make_charts(years=True)
+
+        return context
 
 
 class HeightCurveFemaleMonths(generics.RetrieveAPIView):
@@ -88,12 +78,22 @@ class HeightCurveFemaleMonths(generics.RetrieveAPIView):
         Get the specific curve.
         """
 
-        graphic = HeightCurve(
+        self.graphic = HeightCurve(
             gender=Constants.FEMALE,
             age=Constants.MONTHS
         )
 
-        return graphic.make()
+        return self.graphic.make()
+
+    def get_serializer_context(self):
+        """
+        Insert some attribute inside serializer.
+        """
+
+        context = super(HeightCurveFemaleMonths, self).get_serializer_context()
+        context['graphic'] = self.graphic.make_charts()
+
+        return context
 
 
 class HeightCurveFemaleYears(generics.RetrieveAPIView):
@@ -108,12 +108,22 @@ class HeightCurveFemaleYears(generics.RetrieveAPIView):
         Get the specific curve.
         """
 
-        graphic = HeightCurve(
+        self.graphic = HeightCurve(
             gender=Constants.FEMALE,
             age=Constants.YEARS
         )
 
-        return graphic.make()
+        return self.graphic.make()
+
+    def get_serializer_context(self):
+        """
+        Insert some attribute inside serializer.
+        """
+
+        context = super(HeightCurveFemaleYears, self).get_serializer_context()
+        context['graphic'] = self.graphic.make_charts(years=True)
+
+        return context
 
 
 class HeightCurveResultView(generics.GenericAPIView):
