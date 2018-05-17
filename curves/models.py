@@ -75,14 +75,20 @@ class HeightCurve(object):
         Check the chart if the child is above, below or at the mean height.
         """
 
+        success = False
         result = 0
         count = 0
 
         for curve_age in self.curve.ages:
             if age == curve_age:
+                success = True
                 break
 
             count += 1
+
+        if not success:
+            result = "Idade invalida."
+            return result
 
         if height < self.curve.percentis_3[count]:
             result = -1

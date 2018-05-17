@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from curves.models import HeightCurve
 
 
 class HeightCurveSerializer(serializers.Serializer):
@@ -39,3 +40,24 @@ class HeightCurveSerializer(serializers.Serializer):
     percentis_97 = serializers.ListField(
         child=serializers.FloatField(read_only=True)
     )
+
+
+class HeightCurveResultSerializer(serializers.Serializer):
+    """
+    serialize the result of the curve query
+    """
+
+    height = serializers.FloatField(min_value=0)
+    age = serializers.IntegerField(min_value=0)
+
+    GENDERS = (
+        ('M', 'Male'),
+        ('F', 'Female')
+    )
+    gender = serializers.ChoiceField(choices=GENDERS)
+
+    INTERVAL = (
+        ('months', '0 to 36 months'),
+        ('years', '3 to 18 years'),
+    )
+    interval = serializers.ChoiceField(choices=INTERVAL)

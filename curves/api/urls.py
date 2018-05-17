@@ -22,4 +22,9 @@ height_curves_patterns_api = [
         views.HeightCurveFemaleYears.as_view(),
         name='height-female-years'
     ),
+    path(
+        'result',
+        views.HeightCurveResultView.as_view(),
+        name='height-result'
+    )
 ]
