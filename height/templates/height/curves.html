@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block js %}
+  <script src="{% static 'height/draw.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  <div id="graphic">{{graphic}}</div>
+  <div id="chart_height_curve" class="chart"></div>
+{% endblock %}

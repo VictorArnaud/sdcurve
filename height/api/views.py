@@ -1,8 +1,8 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from curves.models import HeightCurve
-from curves.examples import Constants
+from height.models import HeightCurve
+from height.curves import Constants
 from .serializers import HeightCurveSerializer, HeightCurveResultSerializer
 
 
