@@ -1,14 +1,14 @@
 from django.urls import path, include
-from . import views
 from .api import urls
+from . import views
 
-app_name = 'curves'
+app_name = 'height'
 
 height_curves_patterns = [
     path(
         '',
         views.PlotHeightCurveView.as_view(),
-        name='height-curve'
+        name='plot-curve'
     )
 ]
 

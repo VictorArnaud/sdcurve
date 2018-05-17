@@ -1,5 +1,5 @@
-from curves.examples import Constants
-from curves.examples.height_curves import (
+from height.curves import Constants
+from height.curves import (
     HeightCurveMaleYears, HeightCurveMaleMonths,
     HeightCurveFemaleYears, HeightCurveFemaleMonths
 )

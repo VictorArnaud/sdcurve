@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from .examples import Constants
+from .curves import Constants
 from .models import HeightCurve
 
 
@@ -8,7 +8,7 @@ class PlotHeightCurveView(TemplateView):
     View to plot a height curve.
     """
 
-    template_name = "curves/height.html"
+    template_name = "height/curves.html"
 
     def get_context_data(self, **kwargs):
         """

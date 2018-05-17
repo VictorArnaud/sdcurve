@@ -18,7 +18,7 @@ EXTERNAL_APPS = [
 ]
 
 LOCAL_APPS = [
-    'curves',
+    'height',
 ]
 
 PRODUCTION_APPS = APPS_DJANGO + EXTERNAL_APPS + LOCAL_APPS
