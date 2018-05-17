@@ -69,3 +69,25 @@ class HeightCurve(object):
             result = self.curve.title
 
         return result
+
+    def result(self, height, age):
+        """
+        Check the chart if the child is above, below or at the mean height.
+        """
+
+        result = 0
+        count = 0
+
+        for curve_age in self.curve.ages:
+            if age == curve_age:
+                break
+
+            count += 1
+
+        if height < self.curve.percentis_3[count]:
+            result = -1
+
+        if height > self.curve.percentis_97[count]:
+            result = 1
+
+        return result
