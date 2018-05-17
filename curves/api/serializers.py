@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from curves.models import HeightCurve
 
 
 class HeightCurveSerializer(serializers.Serializer):
@@ -40,6 +39,15 @@ class HeightCurveSerializer(serializers.Serializer):
     percentis_97 = serializers.ListField(
         child=serializers.FloatField(read_only=True)
     )
+
+    graphic = serializers.SerializerMethodField()
+
+    def get_graphic(self, obj):
+        """
+        Get the graphic to plot with google charts
+        """
+
+        return self.context['graphic']
 
 
 class HeightCurveResultSerializer(serializers.Serializer):
