@@ -22,7 +22,7 @@ from sdcurve.config.i18n import (
     LANGUAGE_CODE, TIME_ZONE, USE_I18N, USE_L10N, USE_TZ
 )
 from sdcurve.config.rest import (
-    REST_FRAMEWORK, JWT_AUTH, SWAGGER_SETTINGS
+    REST_FRAMEWORK, SWAGGER_SETTINGS
 )
 from sdcurve.config.middleware import MIDDLEWARE
 from sdcurve.config.security import SECRET_KEY
