@@ -133,7 +133,8 @@ class HeightCurveResultView(generics.GenericAPIView):
 
     serializer_class = HeightCurveResultSerializer
 
-    def get_curve(self, gender, interval):
+    @classmethod
+    def get_curve(cls, gender, interval):
         """
         Get the specific curve from gender and interval.
         """
@@ -174,9 +175,11 @@ class HeightCurveResultView(generics.GenericAPIView):
             data['interval']
         )
 
-        result = graphic.result(
+        query_result = graphic.result(
             data['height'],
             data['age']
         )
+
+        result = {'result': query_result}
 
         return result

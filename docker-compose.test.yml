@@ -1,7 +1,0 @@
-version: '3'
-services:
-  sdcurve-test:
-    image: victorhad/sdcurve:test
-    build:
-      context: .
-      dockerfile: ./compose/test/Dockerfile
