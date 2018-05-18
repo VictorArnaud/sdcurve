@@ -1,5 +1,5 @@
 exclude_paths:
-  - 'Dockerfile'
+  - 'compose/**'
   - 'manage.py'
   - '**/settings.py'
   - '**/tests/**'
