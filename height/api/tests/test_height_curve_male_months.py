@@ -196,7 +196,7 @@ class HeightCurveMaleMonthsTestCase(APITestCase):
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
-        self.assertTrue(response.data['result'] == 0)
+        self.assertTrue(response.data['result'] < 0)
 
     def get_graphic(self):
         """
