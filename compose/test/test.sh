@@ -5,4 +5,4 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 echo "Run the tests"
-python3 manage.py test
+coverage run --source="." manage.py test **/api/tests/
