@@ -163,8 +163,8 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
   Entradas:
     - height (cm): Altura da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 à 36 meses ou 'years' 3 à 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está na altura média.
@@ -252,8 +252,8 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
   Entradas:
     - weight (kg): Peso da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está no peso médio.
@@ -346,8 +346,8 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - height (m): Altura da criança
     - weight (kg): Peso da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está no IMC médio.
@@ -435,11 +435,16 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
   Entradas:
     - perimeter (cm): Perímetro cefálico da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está no perímetro cefálico médio.
     -  1: Se a criança está acima do perímetro cefálico médio.
     - -1: Se a criança está abaixo do perímetro cefálico médio.
   ```
+
+### Refêrencia
+
+BERTAPELLI FABIO. **Curvas de referência de crescimento para crinças e adolescentes com síndrome de down com idade entre 0
+e 20 anos**. Tese de doutorado na Universidade de Campinas, Faculdade de Ciências Médicas. Campinha, SP. 2016
