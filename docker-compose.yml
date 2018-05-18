@@ -1,0 +1,14 @@
+version: '3'
+services:
+  sdcurve-local:
+    image: victorhad/sdcurve:local
+    container_name: sdcurve
+    build:
+      context: .
+      dockerfile: ./compose/local/Dockerfile
+    volumes:
+      - .:/software
+    environment:
+      - CODACY_PROJECT_TOKEN=6d3967e5dd5f4ae5ac8af52757a5dd8c
+    ports:
+      - "8000:8000"
