@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('height.urls')),
     path('', include('weight.urls')),
+    path('', include('perimeter.urls')),
 ]
