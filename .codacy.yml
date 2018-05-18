@@ -1,0 +1,11 @@
+exclude_paths:
+  - 'Dockerfile'
+  - 'manage.py'
+  - '**/settings.py'
+  - '**/tests/**'
+  - '**/migrations/**'
+  - '**/static/**'
+  - '**/templates/**'
+  - '**/__init__.py'
+  - '**/api/tests/**'
+  - '**/api/__init__.py'
