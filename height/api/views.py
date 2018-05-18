@@ -175,9 +175,11 @@ class HeightCurveResultView(generics.GenericAPIView):
             data['interval']
         )
 
-        result = graphic.result(
+        query_result = graphic.result(
             data['height'],
             data['age']
         )
+
+        result = {'result': query_result}
 
         return result
