@@ -5,6 +5,7 @@ Down do sexo masculino ou feminino de 0 a 36 meses e de 3 a 18 anos.
 
 [![Build Status](https://travis-ci.com/VictorArnaud/sdcurve.svg?branch=master)](https://travis-ci.com/VictorArnaud/sdcurve)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/36d1be48a24f42109ae26e2997a6c079)](https://www.codacy.com/app/VictorArnaud/sdcurve?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=VictorArnaud/sdcurve&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/36d1be48a24f42109ae26e2997a6c079)](https://www.codacy.com/app/VictorArnaud/sdcurve?utm_source=github.com&utm_medium=referral&utm_content=VictorArnaud/sdcurve&utm_campaign=Badge_Coverage)
 
 ## Instalação
 
