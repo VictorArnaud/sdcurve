@@ -86,7 +86,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
 
 ### Endpoints para curva de crescimento (Altura)
 
-* /api/growth-curve/height/male-years/
+* **/api/growth-curve/height/male-years/**
+
+  ![cim3-20](https://user-images.githubusercontent.com/14116020/40089804-34a2684a-5884-11e8-8ee1-94827a7159f9.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -104,7 +108,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/height/male-months/
+* **/api/growth-curve/height/male-months/**
+
+  ![cim0-36](https://user-images.githubusercontent.com/14116020/40089803-347c58a8-5884-11e8-85b9-d3d1d1407952.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -121,7 +129,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - percentis_97: Curva de 97%
   ```
 
-* /api/growth-curve/height/female-years/
+* **/api/growth-curve/height/female-years/**
+
+  ![cif3-20](https://user-images.githubusercontent.com/14116020/40089802-345a30c0-5884-11e8-868f-01c094640f99.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -139,7 +151,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/height/female-months/
+* **/api/growth-curve/height/female-months/**
+
+  ![cif0-36](https://user-images.githubusercontent.com/14116020/40089801-342b6628-5884-11e8-9861-87fc667f4d6e.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -157,14 +173,14 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/height/result/
+* **/api/growth-curve/height/result/**
 
   ```
   Entradas:
     - height (cm): Altura da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 à 36 meses ou 'years' 3 à 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está na altura média.
@@ -174,7 +190,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
 
 ### Endpoints para curva de crescimento (Peso)
 
-* /api/growth-curve/weight/male-years/
+* **/api/growth-curve/weight/male-years/**
+
+  ![pim3-20](https://user-images.githubusercontent.com/14116020/40089901-b8b23d68-5884-11e8-900d-375c4e8f5d89.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -192,7 +212,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/weight/male-months/
+* **/api/growth-curve/weight/male-months/**
+
+  ![pim0-36](https://user-images.githubusercontent.com/14116020/40089849-6de9fa96-5884-11e8-96f0-4abf90363086.png)
+  
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -210,7 +234,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/weight/female-years/
+* **/api/growth-curve/weight/female-years/**
+
+  ![pif3-20](https://user-images.githubusercontent.com/14116020/40089848-6dc9c35c-5884-11e8-8f9a-c6476fdfe283.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -228,7 +256,12 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/weight/female-months/
+* **/api/growth-curve/weight/female-months/**
+
+  ![pif0-36](https://user-images.githubusercontent.com/14116020/40089847-6da5b08e-5884-11e8-8fba-4eefa4dfce25.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
+  
 
   ```
   Entradas: N/A
@@ -246,14 +279,14 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/weight/result/
+* **/api/growth-curve/weight/result/**
 
   ```
   Entradas:
     - weight (kg): Peso da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
+    - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
   Saídas:
     -  0: Se a criança está no peso médio.
@@ -263,7 +296,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
 
 ### Endpoints para curva de crescimento (IMC)
 
-* /api/growth-curve/imc/male-years/
+* **/api/growth-curve/imc/male/**
+
+  ![imcm2-18](https://user-images.githubusercontent.com/14116020/40089923-d9523212-5884-11e8-8b6c-ffaf91a37995.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -282,7 +319,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/imc/male-months/
+* **/api/growth-curve/imc/female/**
+
+  ![imcf2-18](https://user-images.githubusercontent.com/14116020/40089922-d92cfb64-5884-11e8-8b55-269d29806f0f.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -301,53 +342,14 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/imc/female-years/
-
-  ```
-  Entradas: N/A
-
-  Saídas:
-    - title: Título da curva.
-    - ages: Idades do eixo X da curva
-    - percentis_3: Curva de 5%
-    - percentis_10: Curva de 10%
-    - percentis_25: Curva de 25%
-    - percentis_50: Curva de 50%
-    - percentis_75: Curva de 75%
-    - percentis_85: Curva de 85%
-    - percentis_90: Curva de 90%
-    - percentis_97: Curva de 95%
-    - graphic: Reordenação dos dados para plotagem.
-  ```
-
-* /api/growth-curve/imc/female-months/
-
-  ```
-  Entradas: N/A
-
-  Saídas:
-    - title: Título da curva.
-    - ages: Idades do eixo X da curva
-    - percentis_3: Curva de 5%
-    - percentis_10: Curva de 10%
-    - percentis_25: Curva de 25%
-    - percentis_50: Curva de 50%
-    - percentis_75: Curva de 75%
-    - percentis_85: Curva de 85%
-    - percentis_90: Curva de 90%
-    - percentis_97: Curva de 95%
-    - graphic: Reordenação dos dados para plotagem.
-  ```
-
-* /api/growth-curve/imc/result/
+* **/api/growth-curve/imc/result/**
 
   ```
   Entradas:
     - height (m): Altura da criança
     - weight (kg): Peso da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
 
   Saídas:
     -  0: Se a criança está no IMC médio.
@@ -357,7 +359,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
 
 ### Endpoints para curva de crescimento (perímetro cefálico)
 
-* /api/growth-curve/perimeter/male-years/
+* **/api/growth-curve/perimeter/male/**
+
+  ![pcim0-24](https://user-images.githubusercontent.com/14116020/40089909-c3dced8c-5884-11e8-99f2-5f2bc44f3b74.png)
+ 
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -375,7 +381,11 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/perimeter/male-months/
+* **/api/growth-curve/perimeter/female/**
+
+  ![pcif0-24](https://user-images.githubusercontent.com/14116020/40089908-c3b7901e-5884-11e8-9aec-28be9e4fbd49.png)
+
+  Fonte: (BERTAPELLI FABIO. 2016)
 
   ```
   Entradas: N/A
@@ -393,53 +403,21 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - graphic: Reordenação dos dados para plotagem.
   ```
 
-* /api/growth-curve/perimeter/female-years/
-
-  ```
-  Entradas: N/A
-
-  Saídas:
-    - title: Título da curva.
-    - ages: Idades do eixo X da curva
-    - percentis_3: Curva de 3%
-    - percentis_10: Curva de 10%
-    - percentis_25: Curva de 25%
-    - percentis_50: Curva de 50%
-    - percentis_75: Curva de 75%
-    - percentis_90: Curva de 90%
-    - percentis_97: Curva de 97%
-    - graphic: Reordenação dos dados para plotagem.
-  ```
-
-* /api/growth-curve/perimeter/female-months/
-
-  ```
-  Entradas: N/A
-
-  Saídas:
-    - title: Título da curva.
-    - ages: Idades do eixo X da curva
-    - percentis_3: Curva de 3%
-    - percentis_10: Curva de 10%
-    - percentis_25: Curva de 25%
-    - percentis_50: Curva de 50%
-    - percentis_75: Curva de 75%
-    - percentis_90: Curva de 90%
-    - percentis_97: Curva de 97%
-    - graphic: Reordenação dos dados para plotagem.
-  ```
-
-* /api/growth-curve/perimeter/result/
+* **/api/growth-curve/perimeter/result/**
 
   ```
   Entradas:
     - perimeter (cm): Perímetro cefálico da criança
     - age: Idade da criança.
-    - gender: 'M' de Masculino ou 'F' de Feminino.
-    - interval: 'months' 0 a 36 meses ou 'years' 3 a 18 anos.
+    - gender: 'M' (Masculino) ou 'F' (Feminino).
 
   Saídas:
     -  0: Se a criança está no perímetro cefálico médio.
     -  1: Se a criança está acima do perímetro cefálico médio.
     - -1: Se a criança está abaixo do perímetro cefálico médio.
   ```
+
+## Refêrencia
+
+BERTAPELLI FABIO. **Curvas de referência de crescimento para crianças e adolescentes com síndrome de down com idade entre 0
+e 20 anos**. Tese de doutorado na Universidade de Campinas, Faculdade de Ciências Médicas. Campinha, SP. 2016
