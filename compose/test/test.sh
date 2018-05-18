@@ -6,3 +6,6 @@ python3 manage.py migrate
 
 echo "Run the tests"
 coverage run --source="." manage.py test **/api/tests/
+coverage report -m
+coverage xml
+python-codacy-coverage -r coverage.xml
