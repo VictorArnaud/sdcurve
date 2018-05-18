@@ -1,8 +1,8 @@
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
+from core import Constants
 from height.models import HeightCurve
-from height.curves import Constants
 
 
 class HeightCurveMaleMonthsTestCase(APITestCase):

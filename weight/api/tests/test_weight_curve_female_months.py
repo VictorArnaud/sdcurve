@@ -2,12 +2,12 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from core import Constants
-from height.models import HeightCurve
+from weight.models import WeightCurve
 
 
-class HeightCurveFemaleMonthsTestCase(APITestCase):
+class WeightCurveFemaleMonthsTestCase(APITestCase):
     """
-    Test to show the height-based growth curve for females aged 0 to 36 months
+    Test to show the weight-based growth curve for females aged 0 to 36 months
     """
 
     def setUp(self):
@@ -15,7 +15,7 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
         This method will run before any test.
         """
 
-        self.url = reverse('height:curve-female-months')
+        self.url = reverse('weight:curve-female-months')
 
     def test_graphic_title(self):
         """
@@ -140,19 +140,19 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
 
     def test_graphic_result_zero(self):
         """
-        Result that says the child is of good height.
+        Result that says the child is of good weight.
         """
 
         data = {
-            'height': 41.54,
+            'weight': 1.93,
             'age': 0,
             'gender': 'F',
             'interval': 'months'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(41.54, 0)
+        result = graphic.result(1.93, 0)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -160,19 +160,19 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
 
     def test_graphic_result_positive(self):
         """
-        Result that says the child is above average height
+        Result that says the child is above average weight
         """
 
         data = {
-            'height': 52.35,
+            'weight': 4.04,
             'age': 0,
             'gender': 'F',
             'interval': 'months'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(52.35, 0)
+        result = graphic.result(4.04, 0)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -180,19 +180,19 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
 
     def test_graphic_result_negative(self):
         """
-        Result that says the child is below average height
+        Result that says the child is below average weight
         """
 
         data = {
-            'height': 41.53,
+            'weight': 1.92,
             'age': 0,
             'gender': 'F',
             'interval': 'months'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(41.53, 0)
+        result = graphic.result(1.92, 0)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -203,7 +203,7 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
         Get the specific graphic.
         """
 
-        graphic = HeightCurve(
+        graphic = WeightCurve(
             gender=Constants.FEMALE,
             age=Constants.MONTHS
         )

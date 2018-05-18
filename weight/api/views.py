@@ -1,24 +1,24 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from height.models import HeightCurve
+from weight.models import WeightCurve
 from core import Constants
-from .serializers import HeightCurveSerializer, HeightCurveResultSerializer
+from .serializers import WeightCurveSerializer, WeightCurveResultSerializer
 
 
-class HeightCurveMaleMonths(generics.RetrieveAPIView):
+class WeightCurveMaleMonths(generics.RetrieveAPIView):
     """
-    Height-based growth curve for males aged 0 to 36 months view.
+    Weight-based growth curve for males aged 0 to 36 months view.
     """
 
-    serializer_class = HeightCurveSerializer
+    serializer_class = WeightCurveSerializer
 
     def get_object(self):
         """
         Get the specific curve.
         """
 
-        self.graphic = HeightCurve(
+        self.graphic = WeightCurve(
             gender=Constants.MALE,
             age=Constants.MONTHS
         )
@@ -30,25 +30,25 @@ class HeightCurveMaleMonths(generics.RetrieveAPIView):
         Insert some attribute inside serializer.
         """
 
-        context = super(HeightCurveMaleMonths, self).get_serializer_context()
+        context = super(WeightCurveMaleMonths, self).get_serializer_context()
         context['graphic'] = self.graphic.make_charts()
 
         return context
 
 
-class HeightCurveMaleYears(generics.RetrieveAPIView):
+class WeightCurveMaleYears(generics.RetrieveAPIView):
     """
-    Height-based growth curve for males aged 3 to 20 years view.
+    Weight-based growth curve for males aged 3 to 20 years view.
     """
 
-    serializer_class = HeightCurveSerializer
+    serializer_class = WeightCurveSerializer
 
     def get_object(self):
         """
         Get the specific curve.
         """
 
-        self.graphic = HeightCurve(
+        self.graphic = WeightCurve(
             gender=Constants.MALE,
             age=Constants.YEARS
         )
@@ -60,25 +60,25 @@ class HeightCurveMaleYears(generics.RetrieveAPIView):
         Insert some attribute inside serializer.
         """
 
-        context = super(HeightCurveMaleYears, self).get_serializer_context()
+        context = super(WeightCurveMaleYears, self).get_serializer_context()
         context['graphic'] = self.graphic.make_charts(years=True)
 
         return context
 
 
-class HeightCurveFemaleMonths(generics.RetrieveAPIView):
+class WeightCurveFemaleMonths(generics.RetrieveAPIView):
     """
-    Height-based growth curve for females aged 0 to 36 months view.
+    Weight-based growth curve for females aged 0 to 36 months view.
     """
 
-    serializer_class = HeightCurveSerializer
+    serializer_class = WeightCurveSerializer
 
     def get_object(self):
         """
         Get the specific curve.
         """
 
-        self.graphic = HeightCurve(
+        self.graphic = WeightCurve(
             gender=Constants.FEMALE,
             age=Constants.MONTHS
         )
@@ -90,25 +90,25 @@ class HeightCurveFemaleMonths(generics.RetrieveAPIView):
         Insert some attribute inside serializer.
         """
 
-        context = super(HeightCurveFemaleMonths, self).get_serializer_context()
+        context = super(WeightCurveFemaleMonths, self).get_serializer_context()
         context['graphic'] = self.graphic.make_charts()
 
         return context
 
 
-class HeightCurveFemaleYears(generics.RetrieveAPIView):
+class WeightCurveFemaleYears(generics.RetrieveAPIView):
     """
-    Height-based growth curve for females aged 3 to 20 years view.
+    Weight-based growth curve for females aged 3 to 20 years view.
     """
 
-    serializer_class = HeightCurveSerializer
+    serializer_class = WeightCurveSerializer
 
     def get_object(self):
         """
         Get the specific curve.
         """
 
-        self.graphic = HeightCurve(
+        self.graphic = WeightCurve(
             gender=Constants.FEMALE,
             age=Constants.YEARS
         )
@@ -120,18 +120,18 @@ class HeightCurveFemaleYears(generics.RetrieveAPIView):
         Insert some attribute inside serializer.
         """
 
-        context = super(HeightCurveFemaleYears, self).get_serializer_context()
+        context = super(WeightCurveFemaleYears, self).get_serializer_context()
         context['graphic'] = self.graphic.make_charts(years=True)
 
         return context
 
 
-class HeightCurveResultView(generics.GenericAPIView):
+class WeightCurveResultView(generics.GenericAPIView):
     """
     Checks whether past data is within the normal growth curve
     """
 
-    serializer_class = HeightCurveResultSerializer
+    serializer_class = WeightCurveResultSerializer
 
     @classmethod
     def get_curve(cls, gender, interval):
@@ -148,7 +148,7 @@ class HeightCurveResultView(generics.GenericAPIView):
         if interval == 'months':
             curve_interval = Constants.MONTHS
 
-        graphic = HeightCurve(
+        graphic = WeightCurve(
             gender=curve_gender,
             age=curve_interval
         )
@@ -176,7 +176,7 @@ class HeightCurveResultView(generics.GenericAPIView):
         )
 
         query_result = graphic.result(
-            data['height'],
+            data['weight'],
             data['age']
         )
 
