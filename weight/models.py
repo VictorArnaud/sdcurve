@@ -1,13 +1,13 @@
 from core import Constants
-from height.curves import (
-    HeightCurveMaleYears, HeightCurveMaleMonths,
-    HeightCurveFemaleYears, HeightCurveFemaleMonths
+from weight.curves import (
+    WeightCurveMaleYears, WeightCurveMaleMonths,
+    WeightCurveFemaleYears, WeightCurveFemaleMonths
 )
 
 
-class HeightCurve(object):
+class WeightCurve(object):
     """
-    Growth curve based on the height of the child with Down Syndrome.
+    Growth curve based on the weight of the child with Down Syndrome.
     """
 
     ALL = 0
@@ -30,13 +30,13 @@ class HeightCurve(object):
         self.graphic = {}
 
         if gender == Constants.MALE and age == Constants.YEARS:
-            self.curve = HeightCurveMaleYears()
+            self.curve = WeightCurveMaleYears()
         elif gender == Constants.MALE and age == Constants.MONTHS:
-            self.curve = HeightCurveMaleMonths()
+            self.curve = WeightCurveMaleMonths()
         elif gender == Constants.FEMALE and age == Constants.YEARS:
-            self.curve = HeightCurveFemaleYears()
+            self.curve = WeightCurveFemaleYears()
         else:
-            self.curve = HeightCurveFemaleMonths()
+            self.curve = WeightCurveFemaleMonths()
 
         self.graphic = self.curve.make()
 
@@ -77,14 +77,14 @@ class HeightCurve(object):
 
         array_data_table = [['Ages', '3%', '10%', '25%', '50%', '75%', '90%', '97%']]
 
-        ages = self.make(HeightCurve.AGES)
-        percentis_3 = self.make(HeightCurve.PERCENTIS_3)
-        percentis_10 = self.make(HeightCurve.PERCENTIS_10)
-        percentis_25 = self.make(HeightCurve.PERCENTIS_25)
-        percentis_50 = self.make(HeightCurve.PERCENTIS_50)
-        percentis_75 = self.make(HeightCurve.PERCENTIS_75)
-        percentis_90 = self.make(HeightCurve.PERCENTIS_90)
-        percentis_97 = self.make(HeightCurve.PERCENTIS_97)
+        ages = self.make(WeightCurve.AGES)
+        percentis_3 = self.make(WeightCurve.PERCENTIS_3)
+        percentis_10 = self.make(WeightCurve.PERCENTIS_10)
+        percentis_25 = self.make(WeightCurve.PERCENTIS_25)
+        percentis_50 = self.make(WeightCurve.PERCENTIS_50)
+        percentis_75 = self.make(WeightCurve.PERCENTIS_75)
+        percentis_90 = self.make(WeightCurve.PERCENTIS_90)
+        percentis_97 = self.make(WeightCurve.PERCENTIS_97)
 
         for age in ages:
             if years:
@@ -103,9 +103,9 @@ class HeightCurve(object):
 
         return array_data_table
 
-    def result(self, height, age):
+    def result(self, weight, age):
         """
-        Check the chart if the child is above, below or at the mean height.
+        Check the chart if the child is above, below or at the mean weight.
         """
 
         success = False
@@ -123,10 +123,10 @@ class HeightCurve(object):
             result = "Invalid age"
             return result
 
-        if height < self.curve.percentis_3[count]:
+        if weight < self.curve.percentis_3[count]:
             result = -1
 
-        if height > self.curve.percentis_97[count]:
+        if weight > self.curve.percentis_97[count]:
             result = 1
 
         return result

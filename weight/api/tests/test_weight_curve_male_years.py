@@ -2,12 +2,12 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from core import Constants
-from height.models import HeightCurve
+from weight.models import WeightCurve
 
 
-class HeightCurveFemaleMonthsTestCase(APITestCase):
+class WeightCurveMaleYearsTestCase(APITestCase):
     """
-    Test to show the height-based growth curve for females aged 0 to 36 months
+    Test to show the weight-based growth curve for males aged 3 to 20 years
     """
 
     def setUp(self):
@@ -15,7 +15,7 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
         This method will run before any test.
         """
 
-        self.url = reverse('height:curve-female-months')
+        self.url = reverse('weight:curve-male-years')
 
     def test_graphic_title(self):
         """
@@ -133,26 +133,26 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
         """
 
         graphic = self.get_graphic()
-        chart = graphic.make_charts()
+        chart = graphic.make_charts(years=True)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['graphic'], chart)
 
     def test_graphic_result_zero(self):
         """
-        Result that says the child is of good height.
+        Result that says the child is of good weight.
         """
 
         data = {
-            'height': 41.54,
-            'age': 0,
-            'gender': 'F',
-            'interval': 'months'
+            'weight': 9.44,
+            'age': 3,
+            'gender': 'M',
+            'interval': 'years'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(41.54, 0)
+        result = graphic.result(9.44, 3)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -160,19 +160,19 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
 
     def test_graphic_result_positive(self):
         """
-        Result that says the child is above average height
+        Result that says the child is above average weight
         """
 
         data = {
-            'height': 52.35,
-            'age': 0,
-            'gender': 'F',
-            'interval': 'months'
+            'weight': 18.23,
+            'age': 3,
+            'gender': 'M',
+            'interval': 'years'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(52.35, 0)
+        result = graphic.result(18.23, 3)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -180,19 +180,19 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
 
     def test_graphic_result_negative(self):
         """
-        Result that says the child is below average height
+        Result that says the child is below average weight
         """
 
         data = {
-            'height': 41.53,
-            'age': 0,
-            'gender': 'F',
-            'interval': 'months'
+            'weight': 9.43,
+            'age': 3,
+            'gender': 'M',
+            'interval': 'years'
         }
 
-        url = reverse('height:curve-result')
+        url = reverse('weight:curve-result')
         graphic = self.get_graphic()
-        result = graphic.result(41.53, 0)
+        result = graphic.result(9.43, 3)
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, response.data['result'])
@@ -203,9 +203,9 @@ class HeightCurveFemaleMonthsTestCase(APITestCase):
         Get the specific graphic.
         """
 
-        graphic = HeightCurve(
-            gender=Constants.FEMALE,
-            age=Constants.MONTHS
+        graphic = WeightCurve(
+            gender=Constants.MALE,
+            age=Constants.YEARS
         )
 
         return graphic

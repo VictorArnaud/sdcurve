@@ -1,9 +1,9 @@
 from rest_framework.test import APITestCase
+from core import Constants
 from height.models import HeightCurve
 from height.curves import (
     HeightCurveMaleYears, HeightCurveMaleMonths,
-    HeightCurveFemaleYears, HeightCurveFemaleMonths,
-    Constants
+    HeightCurveFemaleYears, HeightCurveFemaleMonths
 )
 
 

@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from .curves import Constants
+from core import Constants
 from .models import HeightCurve
 
 

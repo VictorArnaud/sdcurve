@@ -182,7 +182,7 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - gender: 'M' (Masculino) ou 'F' (Feminino).
     - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
-  Saídas:
+  Saídas (result):
     -  0: Se a criança está na altura média.
     -  1: Se a criança está acima da altura média.
     - -1: Se a criança está abaixo da altura média.
@@ -288,7 +288,7 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - gender: 'M' (Masculino) ou 'F' (Feminino).
     - interval: 'months' (0 a 36 meses) ou 'years' (3 a 18 anos).
 
-  Saídas:
+  Saídas (result):
     -  0: Se a criança está no peso médio.
     -  1: Se a criança está acima do peso médio.
     - -1: Se a criança está abaixo do peso médio.
@@ -351,7 +351,7 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - age: Idade da criança.
     - gender: 'M' (Masculino) ou 'F' (Feminino).
 
-  Saídas:
+  Saídas (result):
     -  0: Se a criança está no IMC médio.
     -  1: Se a criança está acima do IMC médio.
     - -1: Se a criança está abaixo do IMC médio.
@@ -411,7 +411,7 @@ dados) em 100 partes, cada uma com uma percentagem de dados aproximadamente igua
     - age: Idade da criança.
     - gender: 'M' (Masculino) ou 'F' (Feminino).
 
-  Saídas:
+  Saídas (result):
     -  0: Se a criança está no perímetro cefálico médio.
     -  1: Se a criança está acima do perímetro cefálico médio.
     - -1: Se a criança está abaixo do perímetro cefálico médio.
