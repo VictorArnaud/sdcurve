@@ -120,7 +120,7 @@ class HeightCurve(object):
             count += 1
 
         if not success:
-            result = "Idade invalida."
+            result = "Invalid age"
             return result
 
         if height < self.curve.percentis_3[count]:
