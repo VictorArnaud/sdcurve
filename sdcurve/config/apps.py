@@ -22,6 +22,7 @@ LOCAL_APPS = [
     'height',
     'weight',
     'perimeter',
+    'imc'
 ]
 
 PRODUCTION_APPS = APPS_DJANGO + EXTERNAL_APPS + LOCAL_APPS

@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('height.urls')),
     path('', include('weight.urls')),
     path('', include('perimeter.urls')),
+    path('', include('imc.urls')),
 ]
