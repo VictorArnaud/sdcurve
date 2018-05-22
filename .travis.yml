@@ -2,27 +2,32 @@ sudo: required
 language: python
 python:
   - "3.6"
-
+addons:
+  ssh_known_hosts:
+    - 104.236.68.6
+    - 159.203.182.32
 services:
   - docker
-
-branches:
-  only:
-    - master
-    - devel
-
-env:
-  - DOCKER_COMPOSE_VERSION=1.17.1
-
+before_install:
+  - sudo apt-get remove docker docker-engine docker.io
+  - sudo apt-get update
+  - sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+  - sudo chmod +x /usr/local/bin/docker-compose
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get install docker-ce
+  - docker-compose version
+  - docker version
 before_script:
   - docker-compose up --build -d
-
 script:
+  - echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
   - docker exec sdcurve coverage run --source="." manage.py test **/api/tests/
   - docker exec sdcurve coverage report -m
   - docker exec sdcurve coverage xml
   - docker exec sdcurve python-codacy-coverage -r coverage.xml
-
 deploy:
   # deploy to staging enviroment
   - provider: script
@@ -30,7 +35,6 @@ deploy:
     skip_cleanup: true
     on:
       branch: develop
-
   # deploy to production enviroment
   - provider: script
     script: bash production-deploy.sh
