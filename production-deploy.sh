@@ -1,9 +1,12 @@
 #!/bin/bash
 #
-# Purpose: Continuous deploy on production enviroment
+# Purpose: Continuous deploy on staging enviroment
 #
 # Author: Victor Arnaud <victorhad@gmail.com>
+# Author: João Pedro Sconetto <sconetto.joao@gmail.com>
 
-sudo docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PASS
-sudo docker-compose -f docker-compose.production.yml build
-sudo docker-compose -f docker-compose.production.yml push
+docker tag victorhad/sdcurve:local sconetto/sdcurve
+docker push sconetto/sdcurve
+
+sudo apt-get install sshpass -y
+sshpass -p $SSH_PASSWORD ssh drdown@159.203.182.32 '/bin/bash /home/drdown/sdcurve-deploy.sh'
