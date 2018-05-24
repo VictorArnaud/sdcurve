@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Purpose: Continuous deploy on staging enviroment
+# Purpose: Continuous deploy on production enviroment
 #
 # Author: Victor Arnaud <victorhad@gmail.com>
 # Author: João Pedro Sconetto <sconetto.joao@gmail.com>
