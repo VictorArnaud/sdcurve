@@ -1,8 +1,9 @@
 version: '3'
 services:
   # Server
-  nginx-prod:
+  sdcurve-nginx:
     image: victorhad/sdcurve:nginx
+    container_name: sdcurve-nginx
     ports:
       - "8000:8000"
     depends_on:
@@ -11,9 +12,11 @@ services:
   # Backend production enviroment
   sdcurve-prod:
     image: victorhad/sdcurve:latest
+    container_name: sdcurve-prod
     depends_on:
       - db
 
   # Postgresql database
   db:
     image: postgres
+    container_name: sdcurve-db
