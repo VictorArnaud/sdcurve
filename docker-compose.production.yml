@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: ./compose/prod/Dockerfile
+
+  # NGINX to production
+  sdcurve-nginx:
+    image: victorhad/sdcurve:nginx
+    build:
+      context: .
+      dockerfile: ./compose/nginx/Dockerfile
