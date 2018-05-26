@@ -5,7 +5,8 @@
 # Author: Victor Arnaud <victorhad@gmail.com>
 # Author: João Pedro Sconetto <sconetto.joao@gmail.com>
 
-docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PASS
+echo $DOCKER_HUB_PASS | docker login -username $DOCKER_HUB_USER --password-stdin
+python3 manage.py collectstatic
 docker-compose -f docker-compose.production.yml build
 docker-compose -f docker-compose.production.yml push
 
