@@ -29,8 +29,5 @@ echo "Creating migrations and insert into psql database"
 python3 manage.py makemigrations
 python3 manage.py migrate
 
-echo "Collect staticfiles"
-python3 manage.py collectstatic --noinput
-
 echo "Run server"
 gunicorn --bind 0.0.0.0:8000 sdcurve.wsgi
