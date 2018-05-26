@@ -23,7 +23,6 @@ before_install:
 before_script:
   - docker-compose up --build -d
 script:
-  - echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
   - docker exec sdcurve coverage run --source="." manage.py test **/api/tests/
   - docker exec sdcurve coverage report -m
   - docker exec sdcurve coverage xml

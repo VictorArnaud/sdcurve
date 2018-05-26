@@ -2,12 +2,9 @@ version: '3'
 services:
   # Server
   nginx-prod:
-    image: nginx:latest
-    volumes:
-      - ./compose/nginx/production.conf:/etc/nginx/conf.d/production.conf
-      - ./sdcurve/staticfiles:/usr/share/nginx/html
+    image: victorhad/sdcurve:nginx
     ports:
-      - "8001:8000"
+      - "8000:8000"
     depends_on:
       - sdcurve-prod
 
