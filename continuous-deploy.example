@@ -11,10 +11,8 @@ docker exec sdcurve python3 manage.py migrate
 cd /home/drdown/sdcurve
 git fetch origin
 git pull origin master
-docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml stop sdcurve-nginx
-docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml stop sdcurve-prod
-docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml rm sdcurve-nginx
-docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml rm sdcurve-prod
+echo y | docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml rm --stop sdcurve-nginx
+echo y | docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml rm --stop sdcurve-prod
 docker-compose -f /home/drdown/sdcurve/docker-compose.deploy.yml up --build -d
 docker exec sdcurve-prod python3 manage.py makemigrations
 docker exec sdcurve-prod python3 manage.py migrate
