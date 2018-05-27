@@ -4,8 +4,6 @@ git fetch origin
 git pull origin develop
 docker-compose -f /home/drdown/sdcurve/docker-compose.yml down
 docker-compose -f /home/drdown/sdcurve/docker-compose.yml up --build -d
-docker exec sdcurve python3 manage.py makemigrations
-docker exec sdcurve python3 manage.py migrate
 
 # Production
 cd /home/drdown/sdcurve
